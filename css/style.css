@@ -92,8 +92,11 @@ button:hover {
   margin-bottom: 40px;
 
 }
+.hide{
+    overflow: hidden;
+}
 /* ***HEADER*** */
-.header{
+  .header{
     height: 90px;
     background-image: url(../assets/img/header_big_bg.jpg);
     background-repeat: no-repeat;
@@ -145,21 +148,32 @@ button:hover {
   .menu-item a:hover{
     color: var(--color-darkgreen);
   }
+  .mobile-item{
+    display: none;
+  }
   .menu-btn{
     padding: 10px 30px;
     font-family: var(--title-btns-menu-font);
     box-shadow: var(--box-shadow);
   }
   /* *********hamburger********* */
-.hamburger {
+  .hamburger {
     display: none;
+    position: absolute;
+    right: 5%;
+    top: 5%;
     width: 35px;
     height: 35px;
     z-index: 11;
-    margin-left:  20px;
+    margin-left: 20px;
+    transition: ease 0.5s;
   }
   .hamburger:hover{
     cursor: pointer;
+  }
+  #hamburger.open{
+    position: fixed;
+    right: 50%;
   }
   .line{
     display: block;
@@ -171,6 +185,15 @@ button:hover {
     -webkit-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
+  }
+  #hamburger.open .line:nth-child(1){
+    transform: rotate(-45deg) translate(-5px, 10px);
+  }
+  #hamburger.open .line:nth-child(2){
+    opacity: 0;
+  }
+  #hamburger.open .line:nth-child(3){
+    transform: rotate(45deg) translate(0, -5px);
   }
   /* ***PREVIEW*** */
   .preview{
@@ -227,6 +250,7 @@ button:hover {
   }
   .steps-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
   }
   .steps-item{
@@ -410,3 +434,306 @@ button:hover {
     width: 33px;
     height: 33px;
   }
+
+  /* MEDIA */
+@media screen and (max-width: 1440px){
+    .container-header{
+        justify-content: space-between;
+    }
+    .logo-box,
+    .main-menu {
+        margin: 0;
+    }
+    .main-menu{
+        width: 50%;
+    }
+    .menu-item{
+        margin-right: 2%;
+    }
+}
+@media screen and (max-width: 992px){
+    :root {
+        --logo-font: 'Magra', sans-serif;
+        --main-font: 'Aleo', serif;
+        --title-btns-menu-font: 'Red Hat Text', sans-serif;
+        --h1-fsz: 5rem;
+        --h2-fsz: 2.5rem;
+        --h3-fsz: 2.2rem;
+        --preview-input-fsz: 1.5rem;
+        --logo-fsz: 2rem;
+        --menu-fsz: 2rem;
+        --footer-fsz: 1rem;
+        --text-fsz: 1.1rem;
+        --sections-btns-fsz: 1.5rem;
+        --color-orange: #F2785C;
+        --color-darkgreen: #0D606F;
+        --color-white: #ffffff;
+        --color-white-transparent: rgba(255,255,255,0.7);
+        --color-orange-transparent: rgba(242, 120, 92, 0.7);
+        --container-padding: 0 5%;
+        --container-mob-padding: 0 15px;
+        --box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
+    }
+    .container{
+        width: 100%;
+      }
+    .mobile-overlay{
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(13, 96, 111, 0.5), rgba(242, 120, 92, 0.5));
+        opacity: 0;
+        visibility: hidden;
+        z-index: 20;
+        transition: opacity 1s;
+    }
+    .mobile-overlay.open{
+        opacity: 1;
+        visibility: visible;
+    }
+    .main-menu{ 
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 95vh;
+        background-color: var(--color-orange);
+        padding-right: 5%;
+        z-index: 20;
+        border-radius: 16px;
+        text-align: right;
+        right: -60%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        transition: right 0.5s;
+      }
+      .main-menu.open{
+        right: 0;
+      }
+      .menu-list{
+        display: block;
+        padding-top: 30%;
+      }
+      .menu-item{
+        margin-bottom: 10%;
+      }
+      .mobile-item{
+        display: block;
+      }
+      .menu-btn{
+        display: none;
+      }
+      .hamburger {
+        display: block;
+        z-index: 21;
+      }
+}
+@media screen and (max-width: 768px){
+  .hide_780,
+  .logo-text{
+    display: none;
+  }
+  .preview-container{
+    max-width: none;
+ }
+ .center-img{
+  margin: 0;
+}
+}
+@media screen and (max-width: 390px){
+  :root {
+    --logo-font: 'Magra', sans-serif;
+    --main-font: 'Aleo', serif;
+    --title-btns-menu-font: 'Red Hat Text', sans-serif;
+    --h1-fsz: 5rem;
+    --h2-fsz: 0.8rem;
+    --h3-fsz: 0.8rem;
+    --preview-input-fsz: 0.8rem;
+    --logo-fsz: 2rem;
+    --menu-fsz: 1rem;
+    --footer-fsz: 1rem;
+    --text-fsz: 0.6rem;
+    --sections-btns-fsz: 0.7rem;
+    --color-orange: #F2785C;
+    --color-darkgreen: #0D606F;
+    --color-white: #ffffff;
+    --color-white-transparent: rgba(255,255,255,0.7);
+    --color-orange-transparent: rgba(242, 120, 92, 0.7);
+    --container-padding: 0 5%;
+    --container-mob-padding: 0 15px;
+    --box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
+ }
+  .section-title{
+    margin-bottom: 20px;
+  }
+  .header{
+   height: 75px;
+   background-image: url(../assets/img/header-bg-mobi.jpg);
+   background-repeat: no-repeat;
+   background-position: center 0;
+   color: var(--color-white);
+  }
+  .container-header{
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .logo-pic{
+    width: 30px;
+    height: auto;
+  }
+  /* .main-menu{ 
+    height: 25vh;
+    padding-right: 5%;
+  } */
+
+  /* preview*/
+  .preview{
+    background-image: url(../assets/img/header-bg-mobi.jpg);
+    background-repeat: no-repeat;
+    background-position: center -75px;
+    height: auto;
+    padding-top: 67px;
+    padding-bottom: 61px;
+    margin-bottom: 20px;
+  }
+  .preview-form{
+    display: flex;
+    justify-content: space-between;
+    max-width: 892px;
+    padding: 9px;
+    border-radius: 10px;
+    background: var(--color-white-transparent);
+  }
+  .preview-form input{
+    width: 60%;
+    font-size: var(--preview-input-fsz);
+    color: var(--color-orange);
+    border-radius: 16px;
+  }
+  .preview-form input::placeholder{
+    font-size: var(--preview-input-fsz);
+    color: var(--color-orange);
+    font-style: italic;
+  }
+  .preview-btn{
+    padding: 7px 9px;
+    font-size: var(--sections-btns-fsz);
+  }
+  /* steps */
+  .steps{
+    margin-bottom: 20px;
+  }
+  .steps-container{
+    padding: 0 15px;
+  }
+  .steps-list{
+    justify-content: space-between;
+  }
+  .steps-item{
+    max-width: 90px;
+    margin: 0;
+  }
+  .steps-item svg{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 19px;
+  }
+  .steps-item p{
+   font-size: var(--text-fsz);
+  }
+  .steps-item:nth-child(1){
+    align-items: start;
+    text-align: left;
+   }
+   .steps-item:nth-child(2){
+    text-align: center;
+    max-width: 110px;
+   }
+   .steps-item:nth-child(3){
+    align-items: end;
+    text-align: right;
+   }
+  /* destinations */
+  .destinations{
+    margin-bottom: 20px;
+  }
+  /* slider */
+  .slider-item{
+    display: flex;
+    align-items: center;
+    width: 360px;
+    max-height: 210px;
+    margin: 0 30px;
+  }
+  .slider-item img{
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+  }
+  .slider{
+    margin-bottom: 10px;
+  }
+  .arrow-btn{
+    gap: 6px;
+    padding: 7px 12px;
+  }
+  .arrow{
+    width: 10px;
+    height: 10px;
+  }
+  /* stories */
+  .stories-container{
+    background-image: linear-gradient(to top, rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url(../assets/img/stories-bg.jpg);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    padding: 10px 15px 13px;
+  }
+  .stories-item{
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  .stories-item:last-child{
+    margin-bottom: 10px;
+  }
+  .stories-img{
+    max-width: 155px;
+    height: 130px;
+  }
+  .stories-text{
+    width: 50%;
+  }
+  .stories-title{
+    margin-bottom: 10px;
+  }
+  /* footer */
+  .footer{
+    overflow: hidden;
+    max-height: 66px;
+  }
+  .footer-container{
+    background-image: url(../assets/img/stories-bg.jpg);
+    padding: 15px 0;
+    background-position: bottom;
+    background-size: cover;
+  }
+  .social {
+    width: 33px;
+    height: 33px;
+  }
+
+
+
+  
+
+ 
+
+
+
+}

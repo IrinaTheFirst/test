@@ -585,11 +585,6 @@ button:hover {
     width: 30px;
     height: auto;
   }
-  /* .main-menu{ 
-    height: 25vh;
-    padding-right: 5%;
-  } */
-
   /* preview*/
   .preview{
     background-image: url(../assets/img/header-bg-mobi.jpg);

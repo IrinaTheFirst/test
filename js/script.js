@@ -15,12 +15,22 @@ $(document).ready(function(){
                 breakpoint: 390,
                 settings: {
                     arrows: true,
+                    adaptiveHeight:true,
                     
                 }
             }
         ]
     });
 });
+// замена изображений для мобильной версии слайдера
+const windowSize = $(window).width();
+const sliderImages = document.querySelectorAll('.img-slider');
+$(function(){
+    if(windowSize < 520) {
+        sliderImages.forEach((img, index) => img.src = `./assets/img/slider-mob/img-${index + 1}.jpg`);
+    }
+})
+
 
 // OPEN MENU
 const hamburger = document.querySelector('.hamburger');
